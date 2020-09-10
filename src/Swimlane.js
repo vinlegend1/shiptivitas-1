@@ -1,8 +1,16 @@
 import React from 'react';
 import Card from './Card';
 import './Swimlane.css';
+// import Dragula from 'dragula';
+
 
 export default class Swimlane extends React.Component {
+
+  // componentDidMount() {
+  //   const container = React.findDOMNode(this);
+  //   dragula([container]);
+  // }
+
   render() {
     const cards = this.props.clients.map(client => {
       return (
@@ -16,7 +24,7 @@ export default class Swimlane extends React.Component {
       );
     })
     return (
-      <div className="Swimlane-column">
+      <div className="Swimlane-column" id={this.props.name}>
         <div className="Swimlane-title">{this.props.name}</div>
         <div className="Swimlane-dragColumn" ref={this.props.dragulaRef}>
           {cards}
@@ -24,4 +32,11 @@ export default class Swimlane extends React.Component {
       </div>);
   }
 
+
+  // dragulaDecorator = (componentBackingInstance) => {
+  //   if (componentBackingInstance) {
+  //     let options = { };
+  //     Dragula([componentBackingInstance], options);
+  //   }
+  // }
 }
